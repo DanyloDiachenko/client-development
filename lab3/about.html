@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Про стилі — CSS</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      a:link {
+        color: #16a085;
+      }
+      a:visited {
+        color: #8e44ad;
+      }
+      a:hover {
+        color: #d35400;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="page-title">Про стилі та пріоритетність</h1>
+
+    <nav>
+      <a href="index.html">Головна</a> | <a href="about.html">Про стилі</a> |
+      <a href="examples.html">Приклади</a>
+    </nav>
+
+    <h2>Пріоритетність</h2>
+    <p>
+      Порядок застосування: зовнішні стилі → стилі рівня документу
+      (<code>&lt;style&gt;</code>) → внутрішні стилі (атрибут
+      <code>style</code>). Оголошення з <code>!important</code> мають вищий
+      пріоритет.
+    </p>
+
+    <p
+      style="
+        padding: 0.5rem 1rem;
+        background-color: #fdebd0;
+        border: 1px solid #f39c12;
+      "
+    >
+      Цей абзац має <strong>внутрішній стиль</strong>: заповнення, фон, межа.
+    </p>
+
+    <h2>Списки та таблиця</h2>
+    <ul>
+      <li>Маркований список</li>
+      <li>Стилі з styles.css</li>
+    </ul>
+    <table>
+      <caption>
+        Таблиця на сторінці «Про стилі»
+      </caption>
+      <thead>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

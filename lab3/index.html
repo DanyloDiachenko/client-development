@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Головна — CSS стилі</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      a:link {
+        color: #16a085;
+      }
+      a:visited {
+        color: #8e44ad;
+      }
+      a:hover {
+        color: #d35400;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-heading" class="page-title">
+      CSS: зовнішні, внутрішні та стилі рівня документу
+    </h1>
+
+    <nav>
+      <a href="index.html">Головна</a> | <a href="about.html">Про стилі</a> |
+      <a href="examples.html">Приклади</a>
+    </nav>
+
+    <h2>Вступ</h2>
+    <p>
+      Зовнішні стилі підключені через
+      <code>&lt;link rel="stylesheet" href="css/styles.css"&gt;</code>. Стилі
+      для body, заголовків (H1–H6) та посилань задані в зовнішньому файлі.
+    </p>
+
+    <p
+      style="
+        font-size: 1.05rem;
+        color: #2c3e50;
+        background-color: #e8daef;
+        padding: 0.75rem 1rem;
+        border-left: 4px solid #9b59b6;
+      "
+    >
+      Цей абзац оформлений <strong>внутрішнім стилем</strong> (атрибут
+      <code>style</code>): збільшений шрифт, колір, фон, внутрішні відступи та
+      ліва межа.
+    </p>
+
+    <p>
+      Для головного заголовка використано унікальний ідентифікатор
+      <code>#main-heading</code> із правилами <code>!important</code> у
+      зовнішньому CSS, щоб підкреслити пріоритет.
+    </p>
+
+    <h2>Списки</h2>
+    <ul>
+      <li>
+        Маркований список — стилі з зовнішнього CSS (поля, заповнення, межі,
+        фон).
+      </li>
+      <li>Другий пункт.</li>
+    </ul>
+    <ol>
+      <li>Нумерований список — окремі стилі (кольори, шрифт, межі).</li>
+      <li>Другий пункт.</li>
+    </ol>
+    <dl>
+      <dt>CSS</dt>
+      <dd>Каскадні таблиці стилів для оформлення документів.</dd>
+      <dt>Селектор</dt>
+      <dd>Частина правила, що визначає елементи для застосування стилів.</dd>
+    </dl>
+
+    <h2>Таблиця</h2>
+    <table>
+      <caption>
+        Приклад таблиці зі стилями CSS
+      </caption>
+      <thead>
+        <tr>
+          <th>Колонка 1</th>
+          <th>Колонка 2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Текст</td>
+          <td>Текст</td>
+        </tr>
+        <tr>
+          <td>Текст</td>
+          <td>Текст</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  text-align: left;
+  background-color: #f5f5f0;
+  margin: 1rem;
+}
+
+h1,
+.page-title {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  color: #34495e;
+  font-style: normal;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.25em;
+}
+
+h3 {
+  font-size: 1.15rem;
+  color: #555;
+}
+
+#main-heading {
+  font-size: 2rem !important;
+  color: #2980b9 !important;
+  letter-spacing: 0.02em;
+}
+
+a:link {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #7d3c98;
+}
+
+a:hover {
+  color: #e74c3c;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #c0392b;
+}
+
+ul {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0 0.5rem 2rem;
+  list-style-type: disc;
+  background-color: #fef9e7;
+  border: 1px solid #f1c40f;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+ul li {
+  margin: 0.25rem 0;
+  padding: 0.15rem 0;
+}
+
+ol {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0 0.5rem 2.25rem;
+  list-style-type: decimal;
+  background-color: #e8f8f5;
+  border: 1px solid #1abc9c;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+ol li {
+  margin: 0.25rem 0;
+  padding: 0.15rem 0;
+}
+
+dl {
+  margin: 0.75rem 0;
+  padding: 1rem 1.25rem;
+  background-color: #ebf5fb;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+dl dt {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0;
+}
+
+dl dt:first-child {
+  margin-top: 0;
+}
+
+dl dd {
+  margin: 0.2rem 0 0 1.5rem;
+  padding: 0.2rem 0;
+  color: #444;
+}
+
+table {
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem 0;
+  padding: 0;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: #fff;
+  border: 2px solid #34495e;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+table caption {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2c3e50;
+  padding: 0.5rem 0;
+  margin-bottom: 0.25rem;
+}
+
+table th,
+table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #bdc3c7;
+  text-align: left;
+}
+
+table th {
+  background-color: #34495e;
+  color: #ecf0f1;
+  font-weight: 600;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #ecf0f1;
+}
+
+table tbody tr:hover {
+  background-color: #d5dbdb;
+}
