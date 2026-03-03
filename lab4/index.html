@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Lab4 — Контекстні, сусідні, дочірні селектори</title>
+    <link rel="stylesheet" href="css/selectors.css" />
+  </head>
+  <body>
+    <h1>CSS: контекстні, сусідні та дочірні селектори</h1>
+
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="#contextual">Контекстні</a>
+      <a href="#child">Дочірні</a>
+      <a href="#adjacent">Сусідні</a>
+    </nav>
+
+    <article>
+      <p>
+        Цей абзац всередині &lt;article&gt; — стиль за контекстним селектором
+        <code>article p</code>.
+      </p>
+    </article>
+
+    <h2 id="contextual">Контекстні селектори (потомок)</h2>
+    <p>
+      Перший абзац після h2: стиль за сусіднім селектором
+      <code>h2 + p</code> (жирний, синій).
+    </p>
+    <p>Другий абзац — вже не сусід h2, тому без цього стилю.</p>
+
+    <section>
+      <p>
+        Прямий дочірній &lt;p&gt; секції — стиль за дочірнім селектором
+        <code>section &gt; p</code> (зелений фон, ліва межа).
+      </p>
+      <div class="content">
+        <p>
+          Абзац у вкладеному div — стиль за контекстним
+          <code>div.content p</code> (курсив, коричневий).
+        </p>
+      </div>
+    </section>
+
+    <h2 id="child">Дочірні селектори (&gt;)</h2>
+    <p>
+      Тільки прямі нащадки: <code>ul &gt; li</code> стилізує лише пункти
+      верхнього рівня.
+    </p>
+    <ul>
+      <li>Пункт 1 (прямий дочірній ul)</li>
+      <li>
+        Пункт 2
+        <ul>
+          <li>
+            Вкладений пункт — стиль <code>ul li li</code> (контекстний, інший
+            колір).
+          </li>
+        </ul>
+      </li>
+      <li>Пункт 3</li>
+    </ul>
+
+    <h2 id="adjacent">Сусідні селектори (+)</h2>
+    <h3>Підзаголовок</h3>
+    <ul>
+      <li>
+        Список одразу після h3 — стиль <code>h3 + ul</code> (квадратні маркери,
+        фіолетовий текст).
+      </li>
+      <li>Другий пункт.</li>
+    </ul>
+
+    <table>
+      <tr>
+        <td>Колонка 1</td>
+        <td>Колонка 2</td>
+        <td>Колонка 3</td>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+      </tr>
+    </table>
+    <p>
+      <small
+        >Таблиця: <code>tr &gt; td:first-child</code> — перша комірка жирна з
+        фоном; <code>td + td</code> — сусідні комірки з лівою межею.</small
+      >
+    </p>
+
+    <footer>
+      <p>
+        Текст у &lt;footer&gt; — стиль за дочірнім селектором
+        <code>footer &gt; p</code>.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin: 1rem;
+  background-color: #fafafa;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+h2 {
+  color: #34495e;
+  margin-top: 1.5rem;
+}
+
+article p {
+  color: #555;
+  line-height: 1.6;
+}
+
+section > p {
+  background-color: #e8f5e9;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #4caf50;
+}
+
+h2 + p {
+  font-weight: 700;
+  color: #1565c0;
+}
+
+h3 + ul {
+  list-style-type: square;
+  color: #6a1b9a;
+}
+
+nav > a {
+  display: inline-block;
+  margin-right: 1rem;
+  color: #0277bd;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+div.content p {
+  font-style: italic;
+  color: #795548;
+}
+
+ul > li {
+  margin: 0.25rem 0;
+  padding-left: 0.5rem;
+}
+
+ul li li {
+  margin-left: 1rem;
+  color: #00838f;
+}
+
+footer > p {
+  font-size: 0.9rem;
+  color: #757575;
+  margin-top: 2rem;
+}
+
+table td + td {
+  border-left: 2px solid #37474f;
+}
+
+tr > td:first-child {
+  font-weight: 600;
+  background-color: #eceff1;
+}
