@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Lab5 — Блочні елементи, позиціонування, псевдокласи</title>
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <div class="position-fixed">position: fixed</div>
+
+    <h1>CSS: блочні та рядкові елементи, позиціонування, псевдокласи</h1>
+
+    <nav>
+      <a href="index.html">Головна</a>
+      <a href="#">Посилання</a>
+      <a href="#blocks">До блоків</a>
+    </nav>
+
+    <p>
+      Посилання вище стилізовані псевдокласами <span>:link</span>,
+      <span>:visited</span>, <span>:hover</span>, <span>:active</span>.
+    </p>
+
+    <h2>Блочні (div) та рядкові (span) елементи</h2>
+    <div class="block-demo">
+      Блочний елемент &lt;div&gt; — займає всю ширину, починається з нового
+      рядка.
+    </div>
+    <div class="block-demo">Другий блок.</div>
+    <p>
+      Рядковий <span>&lt;span&gt;</span> всередині тексту не переносить вміст на
+      новий рядок. Ще <span>один span</span> для прикладу.
+    </p>
+
+    <h2 id="blocks">Позиціонування та float</h2>
+    <div class="wrapper clearfix">
+      <div class="float-left">
+        <strong>float: left</strong><br />
+        Плаваючий блок зліва.
+      </div>
+      <div class="float-right">
+        <strong>float: right</strong><br />
+        Плаваючий блок справа.
+      </div>
+      <p>
+        Текст обтікає плаваючі блоки. Контейнер має клас
+        <code>clearfix</code> (псевдоелемент <code>::after</code> з
+        <code>clear: both</code>), щоб не схлопувався.
+      </p>
+      <div class="position-relative">
+        <strong>position: relative</strong> — зміщений на 10px вниз, 20px вправо
+        від звичайного місця.
+      </div>
+      <div class="position-absolute">
+        <strong>position: absolute</strong> — прив’язаний до правого нижнього
+        кута батька (.wrapper з position: relative).
+      </div>
+    </div>
+
+    <div class="position-static">
+      <strong>position: static</strong> — стандартне розташування в потоці
+      документа.
+    </div>
+
+    <h2>Псевдоклас :first-child та псевдоелементи ::before, ::after</h2>
+    <ul class="list-block">
+      <li>
+        Перший пункт — стиль :first-child (жирний, колір) та ::before (зірочка).
+      </li>
+      <li>Другий пункт — тільки ::after (стрілка).</li>
+      <li>Третій пункт.</li>
+    </ul>
+
+    <p class="quote">
+      Цей абзац оформлений псевдоелементами ::before та ::after — лапки навколо
+      цитати.
+    </p>
+  </body>
+</html>
