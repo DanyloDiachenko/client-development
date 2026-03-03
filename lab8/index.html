@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Lab8 — Події миші, drag-and-drop</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <h1>JavaScript: події миші, drag-and-drop</h1>
+
+    <section>
+      <h2>1) mouseover, mouseout, event.target, event.relatedTarget</h2>
+      <p>
+        Наведіть курсор на елементи — вони змінюють стиль. У лог виводяться
+        <code>target</code> (елемент, на який наведено) та
+        <code>relatedTarget</code> (з якого елемента вийшов курсор).
+      </p>
+      <div class="hover-boxes">
+        <div class="hover-box" id="box-a">Блок A</div>
+        <div class="hover-box" id="box-b">Блок B</div>
+        <div class="hover-box" id="box-c">Блок C</div>
+      </div>
+      <div id="log-target">—</div>
+    </section>
+
+    <section>
+      <h2>2) Перетягування (mousedown, mousemove, mouseup)</h2>
+      <p>
+        Натисніть на елемент і, утримуючи кнопку миші, перетягніть його в одну з
+        зон «Кинути сюди». При відпусканні кнопки (mouseup) елемент копіюється в
+        зону.
+      </p>
+      <p><strong>Джерело (перетягніть звідуси):</strong></p>
+      <div class="drag-source">
+        <span class="draggable" data-type="text">Текст</span>
+        <span class="draggable" data-type="text">Ще текст</span>
+        <span class="draggable" data-type="image">
+          <img
+            src="https://picsum.photos/80/60"
+            alt="Зображення"
+            width="80"
+            height="60"
+          />
+        </span>
+      </div>
+      <p><strong>Зони скидання:</strong></p>
+      <div class="drop-here" id="zone1">Кинути сюди (зона 1)</div>
+      <div class="drop-here" id="zone2">Кинути сюди (зона 2)</div>
+    </section>
+
+    <script src="js/mouse.js"></script>
+  </body>
+</html>
