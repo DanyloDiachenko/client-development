@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Lab7 — Події, обробники, спливання, делегування</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 1rem;
+      }
+      h1 {
+        color: #2c3e50;
+      }
+      h2 {
+        color: #34495e;
+        margin-top: 1.5rem;
+      }
+      section {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        background: #fafafa;
+      }
+      button {
+        margin: 0.25rem;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+      }
+      #click-list {
+        list-style: none;
+        padding: 0;
+      }
+      #click-list li {
+        padding: 0.5rem 1rem;
+        margin: 0.25rem 0;
+        background: #eceff1;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      #click-list li.highlight {
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
+      }
+      #behavior-menu {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      [data-behavior] {
+        cursor: pointer;
+        padding: 0.3rem 0.6rem;
+        margin: 0.2rem;
+      }
+      .behavior-demo {
+        padding: 0.5rem;
+        border: 1px dashed #999;
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript: події, обробники, делегування</h1>
+
+    <section>
+      <h2>1) Подія миші: призначення обробника атрибутом і властивістю</h2>
+      <button type="button" id="btn-via-attr" onclick="handlerViaAttribute()">
+        Через атрибут onclick
+      </button>
+      <button type="button" id="btn-via-property">
+        Через властивість .onclick
+      </button>
+    </section>
+
+    <section>
+      <h2>addEventListener: кілька обробників на одну подію</h2>
+      <button type="button" id="btn-multiple-handlers">
+        Клік — спрацюють 3 обробники
+      </button>
+      <p>
+        <small
+          >У консолі (F12) побачите виклики handlerOne, handlerTwo,
+          handlerThree.</small
+        >
+      </p>
+    </section>
+
+    <section>
+      <h2>Обробник-об'єкт (handleEvent), currentTarget, removeEventListener</h2>
+      <button type="button" id="btn-handler-object">
+        Клік (після додавання об'єкта)
+      </button>
+      <button type="button" onclick="setupObjectListener()">
+        Додати обробник-об'єкт
+      </button>
+      <button type="button" onclick="removeObjectListener()">
+        Видалити обробник (removeEventListener)
+      </button>
+      <p>
+        <small
+          >Об'єкт має метод handleEvent; у обробнику використовується
+          event.currentTarget.</small
+        >
+      </p>
+    </section>
+
+    <section>
+      <h2>
+        2) Делегування: підсвічування списку (onclick на списку, event.target)
+      </h2>
+      <ul id="click-list">
+        <li>Пункт 1</li>
+        <li>Пункт 2</li>
+        <li>Пункт 3</li>
+        <li>Пункт 4</li>
+      </ul>
+      <p>
+        <small
+          >Обробник onclick призначено списку &lt;ul&gt;, а не кожному
+          &lt;li&gt;. Елемент визначається через event.target.</small
+        >
+      </p>
+    </section>
+
+    <section>
+      <h2>Меню з одним обробником і data-* атрибутами</h2>
+      <div id="behavior-menu">
+        <button type="button" data-action="save">Зберегти</button>
+        <button type="button" data-action="load">Завантажити</button>
+        <button type="button" data-action="clear">Очистити</button>
+        <button type="button" data-action="export">Експорт</button>
+      </div>
+      <p>
+        <small
+          >Один обробник на контейнері; дія визначається за data-action.</small
+        >
+      </p>
+    </section>
+
+    <section>
+      <h2>Поведінка (behavior) через data-*</h2>
+      <div class="behavior-demo">
+        <span
+          data-behavior="toggle-text"
+          data-prev="Клікніть для зміни."
+          data-next="Текст змінено."
+          >Клікніть для зміни.</span
+        >
+      </div>
+      <div class="behavior-demo">
+        <button type="button" data-behavior="log-id" data-id="btn-42">
+          Кнопка з data-id (лог у консоль і alert)
+        </button>
+      </div>
+      <p>
+        <small
+          >Елементи з атрибутом data-behavior отримують поведінку через один
+          обробник на document/body; значення з data-* визначають дію.</small
+        >
+      </p>
+    </section>
+
+    <script src="js/events.js"></script>
+  </body>
+</html>
