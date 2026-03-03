@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="D. Diachenko" />
+    <title>Lab6 — JavaScript, DOM, BOM</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        margin: 1rem;
+        background: #fff;
+      }
+      h1 {
+        color: #2c3e50;
+      }
+      h2 {
+        color: #34495e;
+        margin-top: 1.5rem;
+      }
+      section {
+        margin: 1rem 0;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        background: #fafafa;
+      }
+      button {
+        margin: 0.25rem;
+        padding: 0.4rem 0.8rem;
+        cursor: pointer;
+      }
+      #insert-demo,
+      #box-inner,
+      #box-outer {
+        padding: 0.5rem;
+        border: 1px solid #999;
+        margin: 0.5rem 0;
+      }
+    </style>
+    <script>
+      (function () {
+        alert("Внутрішній скрипт: alert.");
+        var name = prompt(
+          "Внутрішній скрипт: введіть ім'я для привітання.",
+          "Користувач",
+        );
+        if (name) {
+          var ok = confirm("Привітати " + name + "?");
+          if (ok) alert("Привіт, " + name + "!");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <script>
+      document.write(
+        "<p><em>Цей рядок додано через document.write під час завантаження документа.</em></p>",
+      );
+    </script>
+    <h1>JavaScript: внутрішні/зовнішні скрипти, DOM, BOM</h1>
+
+    <section>
+      <h2>1) Діалоги та зовнішні функції</h2>
+      <button type="button" onclick="dialogWithUser()">
+        Діалог з користувачем
+      </button>
+      <button
+        type="button"
+        onclick="showDeveloperInfo('Діаченко', 'Дмитро', 'студент')"
+      >
+        Інфо про розробника (3 параметри)
+      </button>
+      <button type="button" onclick="showDeveloperInfo('Петренко', 'Олексій')">
+        Інфо про розробника (посада за замовчуванням)
+      </button>
+      <button
+        type="button"
+        onclick="compareStringsAndAlert('короткий', 'довший рядок')"
+      >
+        Порівняння рядків (більший в alert)
+      </button>
+      <button type="button" onclick="changeBackgroundFor30Seconds('#d5f5e3')">
+        Змінити фон на 30 секунд
+      </button>
+    </section>
+
+    <section>
+      <h2>2) Location, пошук елементів, властивості вузла</h2>
+      <button type="button" onclick="redirectToOtherPage('redirect.html')">
+        Перенаправити на redirect.html (location)
+      </button>
+      <p id="demo-id">Текст для getElementById.</p>
+      <button type="button" onclick="demoGetElementById()">
+        getElementById — змінити текст
+      </button>
+      <p class="demo-query">Елемент 1 (.demo-query)</p>
+      <p class="demo-query">Елемент 2 (.demo-query)</p>
+      <button type="button" onclick="demoQuerySelectorAll()">
+        querySelectorAll — змінити всі .demo-query
+      </button>
+      <p>innerHTML:</p>
+      <div id="box-inner">Початковий текст.</div>
+      <button type="button" onclick="demoInnerHTML()">
+        Вставити HTML (innerHTML)
+      </button>
+      <p>outerHTML:</p>
+      <div id="box-outer">Цей блок замінять через outerHTML.</div>
+      <button type="button" onclick="demoOuterHTML()">
+        Замінити елемент (outerHTML)
+      </button>
+      <p>nodeValue / data:</p>
+      <span id="node-value-demo">Текст у текстовому вузлі.</span>
+      <button type="button" onclick="demoNodeValue()">
+        Показати nodeValue та data (alert)
+      </button>
+      <p>textContent:</p>
+      <span id="text-content-demo">Початковий текст для textContent.</span>
+      <button type="button" onclick="demoTextContent()">
+        Змінити textContent
+      </button>
+    </section>
+
+    <section>
+      <h2>
+        3) createElement, createTextNode, append, prepend, after, replaceWith,
+        remove
+      </h2>
+      <div id="insert-demo">Контейнер:</div>
+      <button type="button" onclick="demoCreateAndInsert()">
+        append, prepend, after
+      </button>
+      <p id="replace-target">Цей елемент буде замінено через replaceWith.</p>
+      <button type="button" onclick="demoReplaceWith()">replaceWith</button>
+      <p id="remove-target">Цей елемент буде видалено через remove().</p>
+      <button type="button" onclick="demoRemove()">remove()</button>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
