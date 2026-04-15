@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="D. Diachenko" />
-    <title>Про стилі — CSS</title>
+    <title>Архітектура ПЗ — CSS</title>
     <link rel="stylesheet" href="css/styles.css" />
     <style>
       a:link {
@@ -18,19 +18,18 @@
     </style>
   </head>
   <body>
-    <h1 class="page-title">Про стилі та пріоритетність</h1>
+    <h1 class="page-title">Архітектура програмного забезпечення</h1>
 
     <nav>
-      <a href="index.html">Головна</a> | <a href="about.html">Про стилі</a> |
+      <a href="index.html">Головна</a> | <a href="about.html">Архітектура ПЗ</a> |
       <a href="examples.html">Приклади</a>
     </nav>
 
-    <h2>Пріоритетність</h2>
+    <h2>Пріоритетність стилів</h2>
     <p>
-      Порядок застосування: зовнішні стилі → стилі рівня документу
-      (<code>&lt;style&gt;</code>) → внутрішні стилі (атрибут
-      <code>style</code>). Оголошення з <code>!important</code> мають вищий
-      пріоритет.
+      Документація з описом шарів ПЗ (презентація, бізнес-логіка, доступ до даних)
+      оформлюється каскадом стилів: зовнішній файл, блок
+      <code>&lt;style&gt;</code> та інлайн для окремих наголосів.
     </p>
 
     <p
@@ -40,32 +39,31 @@
         border: 1px solid #f39c12;
       "
     >
-      Цей абзац має <strong>внутрішній стиль</strong>: заповнення, фон, межа.
+      <strong>Мікросервісна архітектура</strong> — підхід, коли ПЗ складається з
+      незалежних сервісів з чіткими API.
     </p>
 
     <h2>Списки та таблиця</h2>
     <ul>
-      <li>Маркований список</li>
-      <li>Стилі з styles.css</li>
+      <li>Моноліт — єдиний розгорнутий модуль.</li>
+      <li>Мікроядро — мінімальне ядро ОС.</li>
     </ul>
     <table>
-      <caption>
-        Таблиця на сторінці «Про стилі»
-      </caption>
+      <caption>Рівні абстракції</caption>
       <thead>
         <tr>
-          <th>A</th>
-          <th>B</th>
+          <th>Рівень</th>
+          <th>Приклад</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>2</td>
+          <td>Користувач</td>
+          <td>GUI, CLI</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>4</td>
+          <td>Система</td>
+          <td>Ядро ОС, планувальник</td>
         </tr>
       </tbody>
     </table>

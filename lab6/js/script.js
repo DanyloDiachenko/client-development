@@ -1,27 +1,36 @@
 function dialogWithUser() {
-  var name = prompt("Введіть ваше ім'я:", "");
-  if (!name) {
-    alert("Ім'я не введено.");
+  var lang = prompt("Яка ваша основна мова програмування?", "");
+  if (!lang) {
+    alert("Мову не вказано.");
     return;
   }
-  var count = parseInt(prompt("Скільки разів вивести привітання? (1–5)", "2"), 10);
+  var count = parseInt(
+    prompt("Скільки разів вивести рядок про IDE? (1–5)", "2"),
+    10,
+  );
   if (isNaN(count) || count < 1) count = 1;
   if (count > 5) count = 5;
   var i = 0;
   var message = "";
   while (i < count) {
-    message += "Привіт, " + name + "!\n";
+    message += "Мова " + lang + ": використовуйте статичний аналіз і тести.\n";
     i++;
   }
-  var ok = confirm(message + "\nПоказати ще раз?");
+  var ok = confirm(message + "\nВідкрити довідку з репозиторію?");
   if (ok) {
-    alert("Дякуємо за участь!");
+    alert("Дякуємо! Пам’ятайте про ліцензії залежностей.");
   }
 }
 
 function showDeveloperInfo(surname, name, position) {
-  position = position || "розробник";
-  var info = "Розробник сторінки:\nПрізвище: " + surname + "\nІм'я: " + name + "\nПосада: " + position;
+  position = position || "розробник програмного забезпечення";
+  var info =
+    "Автор матеріалів про ПЗ:\nПрізвище: " +
+    surname +
+    "\nІм'я: " +
+    name +
+    "\nПосада: " +
+    position;
   alert(info);
   return info;
 }
@@ -30,9 +39,9 @@ function compareStringsAndAlert(str1, str2) {
   var s1 = String(str1);
   var s2 = String(str2);
   if (s1.length >= s2.length) {
-    alert("Більший (або рівний) рядок:\n" + s1);
+    alert("Довший (або рівний) рядок:\n" + s1);
   } else {
-    alert("Більший рядок:\n" + s2);
+    alert("Довший рядок:\n" + s2);
   }
 }
 
@@ -56,26 +65,30 @@ function redirectToOtherPage(url) {
 function demoGetElementById() {
   var el = document.getElementById("demo-id");
   if (el) {
-    el.textContent = "Текст змінено через getElementById (textContent).";
+    el.textContent =
+      "Модуль оновлено: сумісність з останньою LTS-версією runtime підтверджена.";
   }
 }
 
 function demoQuerySelectorAll() {
   var nodes = document.querySelectorAll(".demo-query");
   nodes.forEach(function (node, i) {
-    node.textContent = "querySelectorAll: елемент " + (i + 1);
+    node.textContent = "Компонент " + (i + 1) + ": стан «готово до збірки».";
   });
 }
 
 function demoInnerHTML() {
   var box = document.getElementById("box-inner");
-  if (box) box.innerHTML = "<strong>innerHTML</strong>: можна вставити <em>HTML</em>.";
+  if (box)
+    box.innerHTML =
+      "<strong>innerHTML</strong>: виправлено <em>CVE</em> у бібліотеці залежностей.";
 }
 
 function demoOuterHTML() {
   var box = document.getElementById("box-outer");
   if (box) {
-    box.outerHTML = "<span id=\"box-outer\">outerHTML замінив весь елемент на &lt;span&gt;.</span>";
+    box.outerHTML =
+      "<span id=\"box-outer\">outerHTML: блок замінено на підпис збірки &lt;build #2048&gt;.</span>";
   }
 }
 
@@ -90,7 +103,7 @@ function demoNodeValue() {
 function demoTextContent() {
   var el = document.getElementById("text-content-demo");
   if (el) {
-    el.textContent = "Новий текст через textContent (без HTML).";
+    el.textContent = "Статус: готово до релізу (без HTML у рядку).";
   }
 }
 
@@ -98,14 +111,16 @@ function demoCreateAndInsert() {
   var container = document.getElementById("insert-demo");
   if (!container) return;
   var p = document.createElement("p");
-  var text = document.createTextNode("Новий параграф (createElement + createTextNode).");
+  var text = document.createTextNode(
+    "Подія: успішна збірка артефакту (createElement + createTextNode).",
+  );
   p.append(text);
   container.append(p);
   var span = document.createElement("span");
-  span.textContent = " [prepend] ";
+  span.textContent = " [prepend: CI] ";
   container.prepend(span);
   var afterSpan = document.createElement("span");
-  afterSpan.textContent = " [after] ";
+  afterSpan.textContent = " [after: changelog] ";
   container.after(afterSpan);
 }
 
@@ -113,7 +128,8 @@ function demoReplaceWith() {
   var el = document.getElementById("replace-target");
   if (el) {
     var newEl = document.createElement("strong");
-    newEl.textContent = "replaceWith: старий вузол замінено на цей.";
+    newEl.textContent =
+      "replaceWith: запис замінено на «API стабільний, застарілі виклики видалено».";
     el.replaceWith(newEl);
   }
 }

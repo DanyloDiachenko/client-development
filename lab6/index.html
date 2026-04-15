@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="D. Diachenko" />
-    <title>Lab6 — JavaScript, DOM, BOM</title>
+    <title>Lab6 — ПЗ: JavaScript, DOM, BOM</title>
     <style>
       body {
         font-family: "Segoe UI", Tahoma, sans-serif;
@@ -38,14 +38,18 @@
     </style>
     <script>
       (function () {
-        alert("Внутрішній скрипт: alert.");
+        alert(
+          "Ласкаво просимо до лабораторної сторінки про програмне забезпечення.",
+        );
         var name = prompt(
-          "Внутрішній скрипт: введіть ім'я для привітання.",
+          "Введіть ваше ім'я (для журналу доступу до документації ПЗ):",
           "Користувач",
         );
         if (name) {
-          var ok = confirm("Привітати " + name + "?");
-          if (ok) alert("Привіт, " + name + "!");
+          var ok = confirm(
+            "Підтвердити перегляд розділу про DOM/BOM для " + name + "?",
+          );
+          if (ok) alert("Доступ дозволено. Приємної роботи, " + name + "!");
         }
       })();
     </script>
@@ -53,67 +57,67 @@
   <body>
     <script>
       document.write(
-        "<p><em>Цей рядок додано через document.write під час завантаження документа.</em></p>",
+        "<p><em>Рядок додано через document.write: каталог програмних продуктів завантажено.</em></p>",
       );
     </script>
-    <h1>JavaScript: внутрішні/зовнішні скрипти, DOM, BOM</h1>
+    <h1>Програмне забезпечення: скрипти, DOM і браузер</h1>
 
     <section>
-      <h2>1) Діалоги та зовнішні функції</h2>
+      <h2>1) Діалоги та функції</h2>
       <button type="button" onclick="dialogWithUser()">
-        Діалог з користувачем
+        Діалог про улюблену мову програмування
       </button>
       <button
         type="button"
-        onclick="showDeveloperInfo('Діаченко', 'Дмитро', 'студент')"
+        onclick="showDeveloperInfo('Дяченко', 'Данило', 'інженер з ПЗ')"
       >
-        Інфо про розробника (3 параметри)
+        Інфо про автора (3 параметри)
       </button>
-      <button type="button" onclick="showDeveloperInfo('Петренко', 'Олексій')">
-        Інфо про розробника (посада за замовчуванням)
+      <button type="button" onclick="showDeveloperInfo('Дяченко', 'Данило')">
+        Інфо про автора (посада за замовчуванням)
       </button>
       <button
         type="button"
-        onclick="compareStringsAndAlert('короткий', 'довший рядок')"
+        onclick="compareStringsAndAlert('MIT', 'GNU General Public License v3')"
       >
-        Порівняння рядків (більший в alert)
+        Порівняти назви ліцензій (довший рядок у alert)
       </button>
-      <button type="button" onclick="changeBackgroundFor30Seconds('#d5f5e3')">
-        Змінити фон на 30 секунд
+      <button type="button" onclick="changeBackgroundFor30Seconds('#e3f2fd')">
+        Фон «режим документації» на 30 секунд
       </button>
     </section>
 
     <section>
-      <h2>2) Location, пошук елементів, властивості вузла</h2>
+      <h2>2) Location, DOM-вузли</h2>
       <button type="button" onclick="redirectToOtherPage('redirect.html')">
-        Перенаправити на redirect.html (location)
+        Перейти до сторінки «Релізи ПЗ» (location)
       </button>
-      <p id="demo-id">Текст для getElementById.</p>
+      <p id="demo-id">Опис модуля: очікує оновлення через getElementById.</p>
       <button type="button" onclick="demoGetElementById()">
-        getElementById — змінити текст
+        getElementById — оновити опис
       </button>
-      <p class="demo-query">Елемент 1 (.demo-query)</p>
-      <p class="demo-query">Елемент 2 (.demo-query)</p>
+      <p class="demo-query">Компонент A (.demo-query)</p>
+      <p class="demo-query">Компонент B (.demo-query)</p>
       <button type="button" onclick="demoQuerySelectorAll()">
-        querySelectorAll — змінити всі .demo-query
+        querySelectorAll — підписати компоненти
       </button>
       <p>innerHTML:</p>
-      <div id="box-inner">Початковий текст.</div>
+      <div id="box-inner">Короткий опис патчу.</div>
       <button type="button" onclick="demoInnerHTML()">
         Вставити HTML (innerHTML)
       </button>
       <p>outerHTML:</p>
-      <div id="box-outer">Цей блок замінять через outerHTML.</div>
+      <div id="box-outer">Блок «Відомості про збірку».</div>
       <button type="button" onclick="demoOuterHTML()">
         Замінити елемент (outerHTML)
       </button>
       <p>nodeValue / data:</p>
-      <span id="node-value-demo">Текст у текстовому вузлі.</span>
+      <span id="node-value-demo">Версія 1.0.0</span>
       <button type="button" onclick="demoNodeValue()">
-        Показати nodeValue та data (alert)
+        Показати nodeValue та data
       </button>
       <p>textContent:</p>
-      <span id="text-content-demo">Початковий текст для textContent.</span>
+      <span id="text-content-demo">Статус: чернетка</span>
       <button type="button" onclick="demoTextContent()">
         Змінити textContent
       </button>
@@ -124,13 +128,13 @@
         3) createElement, createTextNode, append, prepend, after, replaceWith,
         remove
       </h2>
-      <div id="insert-demo">Контейнер:</div>
+      <div id="insert-demo">Контейнер журналу подій:</div>
       <button type="button" onclick="demoCreateAndInsert()">
         append, prepend, after
       </button>
-      <p id="replace-target">Цей елемент буде замінено через replaceWith.</p>
+      <p id="replace-target">Запис про застарілий API.</p>
       <button type="button" onclick="demoReplaceWith()">replaceWith</button>
-      <p id="remove-target">Цей елемент буде видалено через remove().</p>
+      <p id="remove-target">Тимчасове повідомлення про баг.</p>
       <button type="button" onclick="demoRemove()">remove()</button>
     </section>
 

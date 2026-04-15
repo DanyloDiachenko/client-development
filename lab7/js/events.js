@@ -1,33 +1,38 @@
 function handlerViaAttribute() {
-  console.log("Обробник через атрибут onclick.");
-  alert("Обробник призначено через атрибут onclick.");
+  console.log("Обробник через атрибут onclick (інтерфейс ПЗ).");
+  alert("Дію виконано через атрибут onclick.");
 }
 
 function handlerViaProperty() {
-  console.log("Обробник через властивість element.onclick.");
-  alert("Обробник призначено через властивість .onclick.");
+  console.log("Обробник через властивість .onclick.");
+  alert("Дію призначено через властивість .onclick.");
 }
 
 function handlerOne() {
-  console.log("addEventListener: обробник 1");
+  console.log("addEventListener: перевірка цілісності маніфесту");
 }
 
 function handlerTwo() {
-  console.log("addEventListener: обробник 2");
+  console.log("addEventListener: аудит залежностей");
 }
 
 var eventCounter = 0;
 function handlerThree() {
   eventCounter++;
-  console.log("addEventListener: обробник 3, виклик " + eventCounter);
+  console.log("addEventListener: запис у журнал подій, виклик " + eventCounter);
 }
 
 var handlerObject = {
   handleEvent: function (event) {
     var el = event.currentTarget;
-    alert("handleEvent: обробник-об'єкт. Елемент: " + el.tagName + (el.id ? " id=\"" + el.id + "\"" : "") + ".");
+    alert(
+      "handleEvent: елемент керування " +
+        el.tagName +
+        (el.id ? " id=\"" + el.id + "\"" : "") +
+        " (облік дій користувача).",
+    );
     console.log("currentTarget:", el);
-  }
+  },
 };
 
 function setupObjectListener() {
@@ -35,7 +40,7 @@ function setupObjectListener() {
   if (btn && !btn._objectListenerAdded) {
     btn.addEventListener("click", handlerObject);
     btn._objectListenerAdded = true;
-    alert("Додано обробник-об'єкт (handleEvent). Клікніть кнопку.");
+    alert("Додано обробник-об'єкт для кнопки керування ПЗ.");
   }
 }
 
@@ -44,7 +49,7 @@ function removeObjectListener() {
   if (btn && btn._objectListenerAdded) {
     btn.removeEventListener("click", handlerObject);
     btn._objectListenerAdded = false;
-    alert("Обробник видалено через removeEventListener.");
+    alert("Обробник знято через removeEventListener.");
   }
 }
 
@@ -69,13 +74,13 @@ function menuClick(event) {
   var action = target.getAttribute("data-action");
   if (!action) return;
   if (action === "save") {
-    alert("Метод: Зберегти.");
+    alert("Операція: збережено package.json у репозиторії.");
   } else if (action === "load") {
-    alert("Метод: Завантажити.");
+    alert("Операція: завантажено залежності (npm/pip тощо).");
   } else if (action === "clear") {
-    alert("Метод: Очистити.");
+    alert("Операція: очищено кеш збірки CI.");
   } else if (action === "export") {
-    alert("Метод: Експорт.");
+    alert("Операція: експортовано SBOM для аудиту ПЗ.");
   }
 }
 
@@ -86,7 +91,7 @@ function initBehavior() {
     var behavior = target.getAttribute("data-behavior");
     if (behavior === "toggle-text") {
       var next = target.getAttribute("data-next") || "Текст змінено.";
-      var prev = target.getAttribute("data-prev") || "Клікніть для зміни.";
+      var prev = target.getAttribute("data-prev") || "Клікніть.";
       if (target.textContent.trim() === prev) {
         target.textContent = next;
       } else {
@@ -94,8 +99,8 @@ function initBehavior() {
       }
     } else if (behavior === "log-id") {
       var id = target.getAttribute("data-id") || "";
-      console.log("Поведінка data-behavior=log-id, data-id:", id);
-      alert("Поведінка: log-id, data-id = " + id);
+      console.log("Модуль ПЗ, data-id:", id);
+      alert("Ідентифікатор модуля: " + id);
     }
   });
 }

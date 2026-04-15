@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="D. Diachenko" />
-    <title>Lab7 — Події, обробники, спливання, делегування</title>
+    <title>Lab7 — ПЗ: події та делегування</title>
     <style>
       body {
         font-family: "Segoe UI", Tahoma, sans-serif;
@@ -60,10 +60,10 @@
     </style>
   </head>
   <body>
-    <h1>JavaScript: події, обробники, делегування</h1>
+    <h1>Програмне забезпечення: події, меню, поведінка</h1>
 
     <section>
-      <h2>1) Подія миші: призначення обробника атрибутом і властивістю</h2>
+      <h2>1) Подія миші для інтерфейсу ПЗ</h2>
       <button type="button" id="btn-via-attr" onclick="handlerViaAttribute()">
         Через атрибут onclick
       </button>
@@ -73,90 +73,76 @@
     </section>
 
     <section>
-      <h2>addEventListener: кілька обробників на одну подію</h2>
+      <h2>addEventListener: кілька обробників</h2>
       <button type="button" id="btn-multiple-handlers">
-        Клік — спрацюють 3 обробники
+        Подія «клік» — три обробники (журнал у консолі)
       </button>
       <p>
-        <small
-          >У консолі (F12) побачите виклики handlerOne, handlerTwo,
-          handlerThree.</small
-        >
+        <small>Перевірте консоль (F12): події реєстрації дій користувача.</small>
       </p>
     </section>
 
     <section>
-      <h2>Обробник-об'єкт (handleEvent), currentTarget, removeEventListener</h2>
+      <h2>Обробник-об'єкт, currentTarget, removeEventListener</h2>
       <button type="button" id="btn-handler-object">
-        Клік (після додавання об'єкта)
+        Кнопка після додавання об'єкта-обробника
       </button>
       <button type="button" onclick="setupObjectListener()">
         Додати обробник-об'єкт
       </button>
       <button type="button" onclick="removeObjectListener()">
-        Видалити обробник (removeEventListener)
+        Видалити обробник
       </button>
       <p>
-        <small
-          >Об'єкт має метод handleEvent; у обробнику використовується
-          event.currentTarget.</small
-        >
+        <small>handleEvent + event.currentTarget для елемента керування ПЗ.</small>
       </p>
     </section>
 
     <section>
-      <h2>
-        2) Делегування: підсвічування списку (onclick на списку, event.target)
-      </h2>
+      <h2>2) Делегування: каталог модулів ПЗ</h2>
       <ul id="click-list">
-        <li>Пункт 1</li>
-        <li>Пункт 2</li>
-        <li>Пункт 3</li>
-        <li>Пункт 4</li>
+        <li>Операційна система</li>
+        <li>Середовище виконання</li>
+        <li>Бібліотеки та пакети</li>
+        <li>Конфігурація та секрети</li>
       </ul>
       <p>
         <small
-          >Обробник onclick призначено списку &lt;ul&gt;, а не кожному
-          &lt;li&gt;. Елемент визначається через event.target.</small
+          >Один onclick на &lt;ul&gt;; підсвітка через event.target на &lt;li&gt;.</small
         >
       </p>
     </section>
 
     <section>
-      <h2>Меню з одним обробником і data-* атрибутами</h2>
+      <h2>Меню дій над репозиторієм (data-action)</h2>
       <div id="behavior-menu">
-        <button type="button" data-action="save">Зберегти</button>
-        <button type="button" data-action="load">Завантажити</button>
-        <button type="button" data-action="clear">Очистити</button>
-        <button type="button" data-action="export">Експорт</button>
+        <button type="button" data-action="save">Зберегти package.json</button>
+        <button type="button" data-action="load">Завантажити залежності</button>
+        <button type="button" data-action="clear">Очистити кеш збірки</button>
+        <button type="button" data-action="export">Експорт SBOM</button>
       </div>
       <p>
-        <small
-          >Один обробник на контейнері; дія визначається за data-action.</small
-        >
+        <small>Один обробник; data-action визначає операцію з артефактами ПЗ.</small>
       </p>
     </section>
 
     <section>
-      <h2>Поведінка (behavior) через data-*</h2>
+      <h2>Поведінка (data-behavior) для віджетів</h2>
       <div class="behavior-demo">
         <span
           data-behavior="toggle-text"
-          data-prev="Клікніть для зміни."
-          data-next="Текст змінено."
-          >Клікніть для зміни.</span
+          data-prev="Показати опис ліцензії."
+          data-next="GPL: копілефт, зобов'язання надавати вихідний код."
+          >Показати опис ліцензії.</span
         >
       </div>
       <div class="behavior-demo">
-        <button type="button" data-behavior="log-id" data-id="btn-42">
-          Кнопка з data-id (лог у консоль і alert)
+        <button type="button" data-behavior="log-id" data-id="module-auth-01">
+          Логувати id модуля автентифікації
         </button>
       </div>
       <p>
-        <small
-          >Елементи з атрибутом data-behavior отримують поведінку через один
-          обробник на document/body; значення з data-* визначають дію.</small
-        >
+        <small>data-behavior підключає логіку без окремого JS на кожному елементі.</small>
       </p>
     </section>
 

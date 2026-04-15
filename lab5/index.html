@@ -3,78 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="D. Diachenko" />
-    <title>Lab5 — Блочні елементи, позиціонування, псевдокласи</title>
+    <title>Lab5 — ПЗ: верстка та позиціонування</title>
     <link rel="stylesheet" href="css/layout.css" />
   </head>
   <body>
-    <div class="position-fixed">position: fixed</div>
+    <div class="position-fixed">ПЗ: швидкий доступ</div>
 
-    <h1>CSS: блочні та рядкові елементи, позиціонування, псевдокласи</h1>
+    <h1>Програмне забезпечення: блоки, float, псевдокласи</h1>
 
     <nav>
       <a href="index.html">Головна</a>
-      <a href="#">Посилання</a>
-      <a href="#blocks">До блоків</a>
+      <a href="#">Документація</a>
+      <a href="#blocks">Макет</a>
     </nav>
 
     <p>
-      Посилання вище стилізовані псевдокласами <span>:link</span>,
-      <span>:visited</span>, <span>:hover</span>, <span>:active</span>.
+      Посилання стилізовані для навігації по розділах про
+      <span>системне</span> та <span>прикладне</span> ПЗ
+      (<code>:link</code>, <code>:visited</code>, <code>:hover</code>,
+      <code>:active</code>).
     </p>
 
-    <h2>Блочні (div) та рядкові (span) елементи</h2>
+    <h2>Блочні та рядкові елементи</h2>
     <div class="block-demo">
-      Блочний елемент &lt;div&gt; — займає всю ширину, починається з нового
-      рядка.
+      Блок &lt;div&gt; — окремий рядок для опису модуля ядра або сервісу.
     </div>
-    <div class="block-demo">Другий блок.</div>
+    <div class="block-demo">Другий блок — наприклад, панель інструментів IDE.</div>
     <p>
-      Рядковий <span>&lt;span&gt;</span> всередині тексту не переносить вміст на
-      новий рядок. Ще <span>один span</span> для прикладу.
+      Рядковий <span>&lt;span&gt;</span> для термінів: <span>API</span>,
+      <span>SDK</span>, <span>runtime</span>.
     </p>
 
     <h2 id="blocks">Позиціонування та float</h2>
     <div class="wrapper clearfix">
       <div class="float-left">
         <strong>float: left</strong><br />
-        Плаваючий блок зліва.
+        Панель файлів проєкту.
       </div>
       <div class="float-right">
         <strong>float: right</strong><br />
-        Плаваючий блок справа.
+        Властивості збірки (build).
       </div>
       <p>
-        Текст обтікає плаваючі блоки. Контейнер має клас
-        <code>clearfix</code> (псевдоелемент <code>::after</code> з
-        <code>clear: both</code>), щоб не схлопувався.
+        Текст обтікає блоки інтерфейсу документації ПЗ. Контейнер використовує
+        <code>clearfix</code> після плаваючих елементів.
       </p>
       <div class="position-relative">
-        <strong>position: relative</strong> — зміщений на 10px вниз, 20px вправо
-        від звичайного місця.
+        <strong>position: relative</strong> — зміщений блок «Примітка про сумісність версій».
       </div>
       <div class="position-absolute">
-        <strong>position: absolute</strong> — прив’язаний до правого нижнього
-        кута батька (.wrapper з position: relative).
+        <strong>position: absolute</strong> — мітка «Beta» у куті картки релізу.
       </div>
     </div>
 
     <div class="position-static">
-      <strong>position: static</strong> — стандартне розташування в потоці
-      документа.
+      <strong>position: static</strong> — звичний потік для основного тексту про ліцензію.
     </div>
 
-    <h2>Псевдоклас :first-child та псевдоелементи ::before, ::after</h2>
+    <h2>Псевдоклас та псевдоелементи</h2>
     <ul class="list-block">
       <li>
-        Перший пункт — стиль :first-child (жирний, колір) та ::before (зірочка).
+        Перший пункт — етапи SDLC: аналіз, проєктування, реалізація.
       </li>
-      <li>Другий пункт — тільки ::after (стрілка).</li>
-      <li>Третій пункт.</li>
+      <li>Другий пункт — тестування та впровадження.</li>
+      <li>Третій пункт — супровід і виведення з експлуатації.</li>
     </ul>
 
     <p class="quote">
-      Цей абзац оформлений псевдоелементами ::before та ::after — лапки навколо
-      цитати.
+      Програмне забезпечення — це інструмент думки, який перетворює ідеї на дії машини.
     </p>
   </body>
 </html>
